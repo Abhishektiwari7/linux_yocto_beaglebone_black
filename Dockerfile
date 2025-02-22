@@ -35,7 +35,7 @@ RUN chown abhishekdocker /home/abhishekdocker/yocto-Project
 RUN chmod -R 777 /home/abhishekdocker/yocto-Project
 
 USER abhishekdocker
-WORKDIR /home/abhishekdocker/yocto-Project
+WORKDIR /home/abhishekdocker/yocto-Project/linux_yocto_beaglebone_black
 
 
 # Set the default user to abhishekdocker
