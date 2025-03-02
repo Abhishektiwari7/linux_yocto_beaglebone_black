@@ -10,10 +10,12 @@ POKY_DIR="/home/abhishekdocker/yocto-Project/linux_yocto_beaglebone_black/poky"
 BUILD_DIR="$POKY_DIR/build"
 CONF_DIR="$BUILD_DIR/conf"
 MYCONF_DIR="/home/abhishekdocker/yocto-Project/linux_yocto_beaglebone_black/myYoctoConf"
+MYMETA_DIR="/home/abhishekdocker/yocto-Project/linux_yocto_beaglebone_black/meta-custom"
 WIC_DIR="$POKY_DIR/meta-yocto-bsp/wic"
 BBLAYERS_CONF="bblayers.conf"
 LOCAL_CONF="local.conf"
 WIC_CONF="beaglebone-yocto.wks"
+META_SBOM="meta-beagleboneSbom/"
 
 # Change directory to Poky
 cd poky
@@ -36,6 +38,9 @@ cp  "$MYCONF_DIR/$LOCAL_CONF" "$CONF_DIR/$LOCAL_CONF"
 echo -e "Copying $BBLAYERS_CONF to $CONF_DIR"
 cp  "$MYCONF_DIR/$BBLAYERS_CONF" "$CONF_DIR/$BBLAYERS_CONF"
 
+# meta-layer for the sbom of beaglebone
+echo -e "Copying $BBLAYERS_CONF to $MYMETA_DIR"
+cp  -r "$MYMETA_DIR/$META_SBOM" "$POKY_DIR/"
 
 echo -e "Build core image minimal"
 # bitbake strace -c clean
